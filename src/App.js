@@ -1,24 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
+import data from './data.js';
 import './App.css';
+
+const { users, products, companies } = data;
+
+console.log('users:', users);
+console.log('products:', products);
+console.log('companies:', companies);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+		<div>
+			<h2>Product List</h2>
+			<ul>
+				{ products.map( (product,idx) => {
+					return ( <li key = { idx }>{ product.name }</li> )
+				}) }
+			</ul>
+		</div>
+		<div>
+			<h2>User List</h2>
+			<ul>
+				{ users.map( (user,idx) => {
+					return ( <li key = { idx }>{ user.name }</li> )
+				}) }
+			</ul>
+		</div>
+		<div>
+			<h2>Company List</h2>
+			<ul>
+				{ companies.map( (company,idx) => {
+					return ( <li key = { idx }>{ company.name }</li> )
+				}) }
+			</ul>
+		</div>
     </div>
   );
 }
